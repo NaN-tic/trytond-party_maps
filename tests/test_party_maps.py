@@ -30,8 +30,8 @@ class PartyMapsTestCase(ModuleTestCase):
         address.map_place =  "Carrer de les Paus, 98 08202 Sabadell"
         address.save()
         Address.geocoder([address])
-        self.assertEqual(u'%s' % address.latitude, u'41.5513006')
-        self.assertEqual(u'%s' % address.longitude, u'2.1130782')
+        self.assertEqual('%s' % address.latitude, '41.5513006')
+        self.assertEqual('%s' % address.longitude, '2.1130782')
         self.assertEqual(
             address.on_change_with_map_url(),
             'https://www.openstreetmap.org/search?'

@@ -1,6 +1,6 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import sys
 from geopy import geocoders
 from trytond.model import ModelView, fields
@@ -11,8 +11,7 @@ from trytond.transaction import Transaction
 __all__ = ['Address']
 
 
-class Address:
-    __metaclass__ = PoolMeta
+class Address(metaclass=PoolMeta):
     __name__ = 'party.address'
     latitude = fields.Float('Latitude', digits=(16, 16))
     longitude = fields.Float('Longitude', digits=(16, 16))
@@ -52,10 +51,10 @@ class Address:
         else:
             url = ' '.join(self.get_full_address('full_address').splitlines())
         if url.strip():
-            if isinstance(url, unicode) and sys.version_info < (3,):
+            if isinstance(url, str) and sys.version_info < (3,):
                 url = url.encode('utf-8')
             geocoder_engine = getattr(self, 'map_url_%s' % config.map_engine)
-            return geocoder_engine(urllib.quote(url))
+            return geocoder_engine(urllib.parse.quote(url))
 
     @classmethod
     @ModelView.button
@@ -94,7 +93,7 @@ class Address:
         try:
             geolocator = geocoders.GoogleV3(
                 api_key=config.map_engine_googlemaps_key)
-            return geolocator.geocode(u'%s' % address.get_geocoder_address())
+            return geolocator.geocode('%s' % address.get_geocoder_address())
         except:
             return
 
@@ -102,7 +101,7 @@ class Address:
     def geocoder_openstreetmaps(cls, address, config):
         geolocator = geocoders.Nominatim(
             user_agent=config.map_engine_openstreetmaps_agent)
-        return geolocator.geocode(u'%s' % address.get_geocoder_address())
+        return geolocator.geocode('%s' % address.get_geocoder_address())
 
     @classmethod
     def map_url_googlemaps(cls, url):
