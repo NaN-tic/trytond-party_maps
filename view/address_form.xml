@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='subdivision']" position="after">
+        <newline/>
+        <group col="6" colspan="4" id="maps" yfill="1">
+          <separator id="geocoder" string="Geocoder" colspan="6"/>
+          <label name="map_place"/>
+          <field name="map_place"/>
+          <label name="latitude"/>
+          <field name="latitude"/>
+          <label name="longitude"/>
+          <field name="longitude"/>
+          <label name="map_url"/>
+          <field name="map_url" widget="url"/>
+          <button name="geocode" string="Geocode" icon="tryton-go-next" colspan="6"/>
+        </group>
+    </xpath>
+</data>

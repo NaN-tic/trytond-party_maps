@@ -1,0 +1,47 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:party.address:"
+msgid "No \"Maps Engine\" configured in the party configuration."
+msgstr "Falta un \"Motor de Mapas\" en la configuraci��n del tercero."
+
+msgctxt "field:party.address,latitude:"
+msgid "Latitude"
+msgstr "Latitud"
+
+msgctxt "field:party.address,longitude:"
+msgid "Longitude"
+msgstr "Longitud"
+
+msgctxt "field:party.address,map_place:"
+msgid "Map Place"
+msgstr "Map Place"
+
+msgctxt "field:party.address,map_url:"
+msgid "Map URL"
+msgstr "Mapa URL"
+
+msgctxt "field:party.configuration,map_engine:"
+msgid "Maps Engine"
+msgstr "Motor Mapa"
+
+msgctxt "field:party.configuration,map_engine_googlemaps_key:"
+msgid "Google Maps API Key"
+msgstr "Google Maps API Key"
+
+msgctxt "field:party.configuration,map_engine_openstreetmaps_agent:"
+msgid "OpenStreetMaps User Agent"
+msgstr "OpenStreetMaps User Agent"
+
+msgctxt "selection:party.configuration,map_engine:"
+msgid "Google Maps"
+msgstr "Google Maps"
+
+msgctxt "selection:party.configuration,map_engine:"
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+msgctxt "view:party.address:"
+msgid "Geocode"
+msgstr "Geocode"

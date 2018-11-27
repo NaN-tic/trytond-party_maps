@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/field[@name='party_sequence']" position="after">
+        <label name="map_engine"/>
+        <field name="map_engine"/>
+        <label name="map_engine_googlemaps_key"/>
+        <field name="map_engine_googlemaps_key"/>
+        <label name="map_engine_openstreetmaps_agent"/>
+        <field name="map_engine_openstreetmaps_agent"/>
+    </xpath>
+</data>
