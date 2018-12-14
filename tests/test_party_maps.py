@@ -29,7 +29,7 @@ class PartyMapsTestCase(ModuleTestCase):
         address.city = "Sabadell"
         address.map_place =  "Carrer de les Paus, 98 08202 Sabadell"
         address.save()
-        Address.geocoder([address])
+        Address.geocode([address])
         self.assertEqual(u'%s' % address.latitude, u'41.5513006')
         self.assertEqual(u'%s' % address.longitude, u'2.1130782')
         self.assertEqual(
