@@ -7,6 +7,8 @@ from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval, Bool
 from trytond.transaction import Transaction
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Address']
 
@@ -22,10 +24,6 @@ class Address(metaclass=PoolMeta):
     @classmethod
     def __setup__(cls):
         super(Address, cls).__setup__()
-        cls._error_messages.update({
-                'missing_maps_engine': ('No "Maps Engine" configured '
-                        'in the party configuration.'),
-                })
         cls._buttons.update({
                 'geocode': {
                     'readonly': ~Bool(Eval('active')),
@@ -63,7 +61,8 @@ class Address(metaclass=PoolMeta):
         config = Configuration(1)
 
         if not config.map_engine:
-            cls.raise_user_error('missing_maps_engine')
+            raise UserError(gettext(
+                'party_maps.missing_maps_engine'))
         geocoder_engine = getattr(cls, 'geocoder_%s' % config.map_engine)
 
         to_write = []
