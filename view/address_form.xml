@@ -14,7 +14,7 @@ this repository contains the full copyright notices and license terms. -->
           <field name="longitude"/>
           <label name="map_url"/>
           <field name="map_url" widget="url"/>
-          <button name="geocode" string="Geocode" icon="tryton-forward" colspan="6"/>
+          <button name="geocode" colspan="6"/>
         </group>
     </xpath>
 </data>
