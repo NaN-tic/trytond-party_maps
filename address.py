@@ -27,6 +27,7 @@ class Address(metaclass=PoolMeta):
         cls._buttons.update({
                 'geocode': {
                     'readonly': ~Bool(Eval('active')),
+                    'icon': 'tryton-forward',
                     },
                 })
 
