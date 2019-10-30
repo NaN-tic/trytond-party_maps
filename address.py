@@ -31,7 +31,7 @@ class Address(metaclass=PoolMeta):
                     },
                 })
 
-    @fields.depends('name', 'street', 'streetbis', 'zip', 'city', 'country',
+    @fields.depends('name', 'street', 'zip', 'city', 'country',
         'subdivision', 'latitude', 'longitude', 'map_place')
     def on_change_with_map_url(self, name=None):
         Configuration = Pool().get('party.configuration')
