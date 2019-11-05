@@ -98,6 +98,9 @@ class Address(metaclass=PoolMeta):
 
     @classmethod
     def geocoder_openstreetmaps(cls, address, config):
+        config.map_engine_openstreetmaps_agent = 'my-application'
+        import geopy
+        geopy.geocoders.options.default_timeout = 200
         geolocator = geocoders.Nominatim(
             user_agent=config.map_engine_openstreetmaps_agent)
         return geolocator.geocode('%s' % address.get_geocoder_address())
