@@ -5,5 +5,6 @@ copyright notices and license types. -->
     <xpath expr="/tree" position="inside">
         <field name="latitude"/>
         <field name="longitude"/>
+        <button name="geocode" tree_invisible="1"/>
     </xpath>
 </data>
