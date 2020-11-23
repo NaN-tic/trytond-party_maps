@@ -99,7 +99,7 @@ class Address(metaclass=PoolMeta):
 
     @classmethod
     def geocoder_openstreetmaps(cls, address, config):
-        config.map_engine_openstreetmaps_agent = 'my-application'
+        config.map_engine_openstreetmaps_agent = 'tryton-application'
         import geopy
         geopy.geocoders.options.default_timeout = 200
         geolocator = geocoders.Nominatim(
