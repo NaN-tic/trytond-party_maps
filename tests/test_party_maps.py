@@ -25,7 +25,7 @@ class PartyMapsTestCase(ModuleTestCase):
         address = Address()
         address.party = party
         address.street = "Carrer de les Paus, 98"
-        address.zip = "08202"
+        address.postal_code = "08202"
         address.city = "Sabadell"
         address.map_place =  "Carrer de les Paus, 98 08202 Sabadell"
         address.save()

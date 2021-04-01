@@ -10,8 +10,6 @@ from trytond.transaction import Transaction
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['Address']
-
 
 class Address(metaclass=PoolMeta):
     __name__ = 'party.address'
@@ -31,7 +29,7 @@ class Address(metaclass=PoolMeta):
                     },
                 })
 
-    @fields.depends('name', 'street', 'zip', 'city', 'country',
+    @fields.depends('name', 'street', 'postal_code', 'city', 'country',
         'subdivision', 'latitude', 'longitude', 'map_place')
     def on_change_with_map_url(self, name=None):
         Configuration = Pool().get('party.configuration')
@@ -82,7 +80,7 @@ class Address(metaclass=PoolMeta):
     def get_geocoder_address(self):
         if self.map_place:
             return self.map_place
-        return '%s %s %s' % (self.street, self.zip, self.city)
+        return '%s %s %s' % (self.street, self.postal_code, self.city)
 
     @classmethod
     def geocoder_googlemaps(cls, address, config):
