@@ -1,14 +1,13 @@
-# This file is part party_maps module for Tryton.
-# The COPYRIGHT file at the top level of this repository contains
-# the full copyright notices and license terms.
-import unittest
+
+# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
+
 from trytond.tests.test_tryton import ModuleTestCase, with_transaction
-from trytond.tests.test_tryton import suite as test_suite
 from trytond.pool import Pool
 
 
 class PartyMapsTestCase(ModuleTestCase):
-    'Test Party Maps module'
+    'Test PartyMaps module'
     module = 'party_maps'
 
     @with_transaction()
@@ -37,8 +36,5 @@ class PartyMapsTestCase(ModuleTestCase):
             'https://www.openstreetmap.org/search?'
             'query=41.55081440%2C2.11183450')
 
-def suite():
-    suite = test_suite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
-            PartyMapsTestCase))
-    return suite
+
+del ModuleTestCase
